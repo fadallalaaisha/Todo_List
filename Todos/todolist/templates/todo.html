@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="hh1">My Personal Todo List Page.</h1>
+       
+
+<ul>
+    
+    <table class="table table-striped">
+        {% for todo_item in all_items%}
+    <li>
+        {{todo_item.content}}
+        <form action="/deleteTodo/{{todo_item.id}}/" 
+        style="display: inline;" method="post"> {% csrf_token%}
+        <input class="remove" type="submit" value="Delete"/>
+        </form>        
+    </li>
+    {%endfor%}
+    <form action="/addTodo/" method="post"> {% csrf_token%}
+    <input type="text" name="content"/>
+        <input type="submit" value="Add"/>
+        </form> 
+       
+    </table>
+   
+</ul>
+
+
+<!-- This send the http request for the url -->
+<!-- csrf_token% is for security use -->
+<!-- we can add and submit items on our dotolist -->
+<style>
+    body{
+        background-image: url("https://lh3.googleusercontent.com/proxy/u2muBtl-KoeEtx_DV_bxshCVBCFuQQ9OknOPuCCznfuTiNwYuRut9Hw1Jdxz0oQiArBqkwtodqZHtFe-WMAg3adNnA-q1AB0yqZpA6VCnfaKS37bhjo");
+        background-size: cover;
+        background-repeat: no-repeat;
+   }
+   .hh1{
+ text-align: center;
+   }
+   .remove{
+       margin-left: 3%;
+   }
+   .forming{
+       text-align: center;
+   }
+</style>
+
+</body>
+</html>
