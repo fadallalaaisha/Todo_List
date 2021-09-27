@@ -12,10 +12,7 @@
 </head>
 <body>
     <h1 class="hh1">My Personal Todo List Page.</h1>
-       
-
-<ul>
-    
+<ul> 
     <table class="table table-striped">
         {% for todo_item in all_items%}
     <li>
@@ -31,11 +28,8 @@
         <input type="submit" value="Add"/>
         </form> 
        
-    </table>
-   
+    </table>   
 </ul>
-
-
 <!-- This send the http request for the url -->
 <!-- csrf_token% is for security use -->
 <!-- we can add and submit items on our dotolist -->
@@ -49,10 +43,13 @@
  text-align: center;
    }
    .remove{
-       margin-left: 3%;
+       margin-left: 0%;
    }
    .forming{
        text-align: center;
+   }
+   body{
+       background-color: aqua;
    }
 </style>
 
